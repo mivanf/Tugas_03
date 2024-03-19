@@ -1,13 +1,12 @@
 public class Kereta {
-    private String namaKereta; // Variabel untuk nama kereta
+    private Ticket ticket; // Variabel untuk nama kereta
     private int sisaTiket; // Variabel untuk sisa tiket
-    private Ticket ticket; // variabel untuk jumlah tiket
+    private String namaKereta; // variabel untuk jumlah tiket
 
     public Kereta() { // Default constructor kereta Komuter
         ticket = new Ticket(); // Membuat objek Ticket
         sisaTiket = 1000; // Batas tiket yang terjual untuk kereta komuter
-        namaKereta = "Komuter"; // Untuk menginisiasi nama kerrta
-        
+        namaKereta = "komuter"; // Untuk menginisiasi nama kerrta
     }
 
     public Kereta(String namaKereta, int jumlahTiket) { // Overload constructor untuk KAJJ
@@ -24,14 +23,15 @@ public class Kereta {
             }
             newPenumpang = addElement(newPenumpang, namaPenumpang); // Memanggil method addElement() dan memasukkan penumpang ke newPenumpang
             ticket.setNamaPenumpang(newPenumpang); // Menyimpan array ke objek ticket
-            System.out.println("========================================================"); // Output pembatas
-            System.out.println("Tiket berhasil disimpan"); // Output ketika tiket berhasil disimpan
+            System.out.println("=================================================="); // Output pembatas
+            System.out.println("Tiket berhasil dipesan"); // Output ketika tiket berhasil disimpan
             sisaTiket--; // Mengurangi nilai pada sisaTiket
         }
+
     }
 
     public void tambahTiket(String namaPenumpang, String asal, String tujuan) {
-        System.out.println("========================================================"); // Output pembatas
+        System.out.println("=================================================="); // Output pembatas
         String[] newPenumpang = ticket.getNamaPenumpang(); // Untuk menyimpan nama-nama penumpang
         if (newPenumpang == null) { // Ini akan berjalan jika array nya kosong
             newPenumpang = new String[0]; // Menginisiasikan sebagai array kosong
@@ -67,7 +67,7 @@ public class Kereta {
     }
 
     public void tampilkanTiket() {
-        System.out.println("========================================================"); // Output pembatas
+        System.out.println("=================================================="); // Output pembatas
         System.out.println("Daftar penumpang kereta api " + namaKereta + ":"); // Output untuk daftar pada nama kereta
         System.out.println("----------------------------"); // Output pembatas
         String[] penumpang = ticket.getNamaPenumpang(); // Mendapatkan array yang berisi nama-nama penumpang dari ticket
@@ -87,7 +87,7 @@ public class Kereta {
 
     private String[] addElement(String[] array, String element) { // Method addElement()
         String[] newArray = new String[array.length + 1]; // Membuat array baru yang lebih panjang 1 nilai dari array
-        for (int i = 0; i < newArray.length; i++) { // Looping ini akan berjalan sesuai dengan panjang newArray
+        for (int i = 0; i < array.length; i++) { // Looping ini akan berjalan sesuai dengan panjang newArray
             newArray[i] = array[i]; // Menyalin dari array ke newArray
         }
         newArray[array.length] = element; // Menambah element kedalam newArray
